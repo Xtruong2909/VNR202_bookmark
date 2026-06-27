@@ -3,9 +3,11 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment, Float, ContactShadows } from '@react-three/drei';
 import { Bookmark } from '../components/Bookmark';
 import { useParams, Link } from 'react-router-dom';
+import { getBookmarkData } from '../utils/bookmarkData';
 
 function Detail() {
   const { id } = useParams();
+  const bookmarkData = getBookmarkData(id);
 
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center relative bg-cover bg-center"
@@ -22,6 +24,32 @@ function Detail() {
             Kéo chuột để xoay • Lăn chuột để zoom
           </p>
         </div>
+      </div>
+
+      {/* Image Source - Bottom Right */}
+      <div className="absolute bottom-4 right-4 z-20 bg-black/60 backdrop-blur-sm px-4 py-3 rounded-2xl max-w-sm text-left">
+        <p className="text-xs uppercase tracking-[0.1 em] text-slate-300 mb-2">
+          Nguồn
+        </p>
+        <p className="text-sm leading-6 text-white/95">
+          {bookmarkData.source}
+        </p>
+        {bookmarkData.sourceUrl ? (
+          <a
+            href={bookmarkData.sourceUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-sky-200 hover:text-white hover:underline"
+          >
+            Xem nguồn
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 5h6v6" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10 14L21 3" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 3v6" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18" />
+            </svg>
+          </a>
+        ) : null}
       </div>
 
       <Canvas

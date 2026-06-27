@@ -16,46 +16,83 @@ import img12 from '../assets/12.png';
 // Bookmark 1-5: Front = 2, 3, 4, 5, 6. Back = 1.
 // Bookmark 6-10: Front = 8, 9, 10, 11, 12. Back = 7.
 
+const bookmarkSources = {
+    1: {
+        source: 'Hình AI',
+        sourceUrl: null
+    },
+    2: {
+        source: 'Tranh “Phong trào Xô viết Nghệ Tĩnh” trưng bày tại Bảo tàng Lịch sử quốc gia.',
+        sourceUrl: 'https://nhandan.vn/special/Nguyen-Ai-Quoc-voi-phong-trao-Xo-viet-Nghe-Tinh/index.html'
+    },
+    3: {
+        source: 'Hình AI',
+        sourceUrl: null
+    },
+    4: {
+        source: 'Hình AI',
+        sourceUrl: null
+    },
+    5: {
+        source: 'Hình AI',
+        sourceUrl: null
+    },
+    6: {
+        source: 'Hình AI',
+        sourceUrl: null
+    },
+    7: {
+        source: 'Ảnh: Lễ thành lập Đội Việt Nam Tuyên truyền Giải phóng quân tại khu rừng Trần Hưng Đạo, huyện Nguyên Bình, tỉnh Cao Bằng, ngày 22/12/1944.',
+        sourceUrl: 'https://baotanglichsu.vn/vi/Articles/3097/75108/su-kien-thanh-lap-djoi-viet-nam-tuyen-truyen-giai-phong-quan-qua-suu-tap-hien-vat-tai-lieu-tai-bao-tang-lich-su-quoc-gia.html'
+    },
+    8: {
+        source: 'Toàn quyền Đông Dương Decoux đón tướng Nhật sau ngày Nhật đảo chính Pháp. Ảnh: Bảo tàng Lịch sử Quốc gia.',
+        sourceUrl: 'https://baovanhoa.vn/doi-song/nhat-dao-chinh-phap-tai-dong-duong-209693.html'
+    },
+    9: {
+        source: '15 ngày (từ ngày 14 - 28/8) cuộc Tổng khởi nghĩa giành chính quyền đã thực hiện trên cả nước, Cách mạng Tháng Tám thành công vang dội.',
+        sourceUrl: 'https://tienphong.vn/nhung-hinh-anh-lich-su-ve-cach-mang-thang-tam-1945-o-ha-noi-post1131749.tpo'
+    },
+    10: {
+        source: 'Mặt trận Việt Minh tổ chức mít-tinh với sự tham gia của hàng vạn quần chúng nhân dân tại Quảng trường Nhà hát Lớn Hà Nội 17/8/1945.',
+        sourceUrl: 'https://snv.quangngai.gov.vn/thong-tin-qua-cac-bao/cach-mang-thang-tam-nam-1945-su-kien-vi-dai-trong-lich-su-dan-toc-viet-nam.html'
+    }
+};
+
 export const getBookmarkData = (id) => {
     const numericId = parseInt(id, 10);
 
-    if (numericId >= 1 && numericId <= 5) {
-        // For IDs 1-5
-        // ID 1 -> Front: img2 (index 1 + 1)
-        // ID 2 -> Front: img3
-        // ...
-        // ID 5 -> Front: img6
+    const defaultSource = {
+        source: 'Nguồn không xác định',
+        sourceUrl: null
+    };
 
-        // Front image mapping:
-        const frontImages = [null, img2, img3, img4, img5, img6]; // 1-based index for convenience
+    if (numericId >= 1 && numericId <= 5) {
+        const frontImages = [null, img2, img3, img4, img5, img6];
 
         return {
             id: numericId,
             front: frontImages[numericId],
-            back: img1
+            back: img1,
+            ...bookmarkSources[numericId] ?? defaultSource
         };
     } else if (numericId >= 6 && numericId <= 10) {
-        // For IDs 6-10
-        // ID 6 -> Front: img8
-        // ID 7 -> Front: img9
-        // ...
-        // ID 10 -> Front: img12
-
         const offset = 6;
         const frontImages = [img8, img9, img10, img11, img12];
 
         return {
             id: numericId,
             front: frontImages[numericId - offset],
-            back: img7
+            back: img7,
+            ...bookmarkSources[numericId] ?? defaultSource
         };
     }
 
-    // Default fallback if ID is out of range
     return {
         id: numericId,
         front: img2,
-        back: img1
+        back: img1,
+        ...defaultSource
     };
 };
 
