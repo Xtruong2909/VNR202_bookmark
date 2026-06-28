@@ -34,12 +34,12 @@ const bookmarkSources = {
         sourceUrl: null
     },
     5: {
-        source: 'Hình AI',
-        sourceUrl: null
+        source: 'Lán Khuổi Nậm ở Pác Bó, xã Trường Hà, huyện Hà Quảng, Cao Bằng  nơi diễn ra Hội nghị Trung ương Đảng cộng sản Đông dương lần thứ VIII (5/1941)',
+        sourceUrl: 'https://baotanglichsu.vn/vi/Articles/3097/14317/hoi-nghi-lan-thu-viii-ban-chap-hanh-trung-uong-djang-va-quyet-djinh-tien-hanh-cong-cuoc-giai-phong-dan-toc-tu-ngay-10-djen-ngay-19-5-1941.html'
     },
     6: {
         source: 'Hình AI',
-        sourceUrl: null
+        sourceUrl: 'null'
     },
     7: {
         source: 'Ảnh: Lễ thành lập Đội Việt Nam Tuyên truyền Giải phóng quân tại khu rừng Trần Hưng Đạo, huyện Nguyên Bình, tỉnh Cao Bằng, ngày 22/12/1944.',
