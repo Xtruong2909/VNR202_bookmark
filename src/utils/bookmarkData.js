@@ -39,7 +39,7 @@ const bookmarkSources = {
     },
     6: {
         source: 'Hình AI',
-        sourceUrl: 'null'
+        sourceUrl: null
     },
     7: {
         source: 'Ảnh: Lễ thành lập Đội Việt Nam Tuyên truyền Giải phóng quân tại khu rừng Trần Hưng Đạo, huyện Nguyên Bình, tỉnh Cao Bằng, ngày 22/12/1944.',
